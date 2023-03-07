@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Recipe</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+    <div class=view-navbar>
+        <h1> Welcome, {{session["first_name"]}}!</h1>
+        <a href="/dashboard">Back to recipes</a>
+        <a href="/logout">logout</a>
+    </div>
+    {% for recipe in recipes %}
+        <div class="top_title">
+            <h3>{{recipe.name}}<h3>
+            <h5>Posted by: {{recipe.first_name}} </h5>
+        </div>
+        <div class="box">
+            <label style="font-weight:bold">Description:</label>
+            <p>{{recipe.description}}</p>
+            <br>
+            <label style="font-weight:bold">Under 30 min:</label>
+            <p>{{recipe.time}}</p>
+            <br>
+            <label style="font-weight:bold">Instructions:</label>
+            <p>{{recipe.instructions}}</p>
+            <br>
+            <label style="font-weight:bold">Date Made:</label>
+            <p>{{recipe.created_at}}</p>
+        </div>
+    {% endfor %}
+</body>
+</html>

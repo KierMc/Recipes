@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Recipe</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+    <div class=navbar>
+        <h1>Edit recipe!</h1>
+        <a href="/dashboard">Back to recipes</a>
+        <a href="/logout">Logout</a>
+    </div>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <p style="color:red">{{message}}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <br>
+    <form action="/save_recipe/{{recipe.id}}" method="POST">
+        <label>Name:</label>
+        <input name=name type="text" value="{{recipe.name}}">
+        <br>
+        <label>Under 30 Minutes?</label>
+        {% if recipe.time=='Yes' %}
+            <input type="radio" name="time" value="Yes" checked >Yes
+            <input type="radio" name="time" value="No">No
+        {% else %}
+            <input type="radio" name="time" value="Yes">Yes
+            <input type="radio" name="time" value="No" checked>No
+        {% endif %}
+        <br>
+        <label>Description</label>
+        <textarea name="description">{{recipe.description}}</textarea>
+        <br>
+        <label>Instructions</label>
+        <textarea name="instructions">{{recipe.instructions}}</textarea>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

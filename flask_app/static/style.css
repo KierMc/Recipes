@@ -1,0 +1,37 @@
+.title{
+    margin-bottom: 50px;
+}
+.navbar{
+    display: flex;
+    align-items: center;
+}
+.dash-navbar{
+    display:flex;
+    align-items: center;
+}
+a{
+    margin:20px;
+}
+table, th, td{
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+}
+button{
+    margin-top: 5px;
+}
+.view-navbar{
+    display: flex;
+    align-items: center;
+}
+.top_title{
+    display: flex;
+}
+.box{
+    border: 1px solid black;
+    padding-left: 10px;
+}
+
+h5{
+    margin-left: 20px;
+}
